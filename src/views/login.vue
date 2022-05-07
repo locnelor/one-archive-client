@@ -59,10 +59,10 @@ export default {
       this.loading = true;
       http.auth
         .login(values)
-        .then((e) => {
-          console.log(e);
+        .then(() => {
           this.$router.push({
-            path: this.$router.history.current.query.pathname || "/",
+            path: "auth",
+            query: this.$router.history.current.query.pathname || "/",
           });
         })
         .catch(console.log)

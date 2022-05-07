@@ -1,5 +1,6 @@
 <template>
-  <div class="app-container">
+  <div class="container">
+    123123
     <van-row :gutter="40">
       <van-col :span="6" v-for="(item, key) in utils" :key="key">
         <van-card :title="item.title" @click="push(item)"> </van-card>
@@ -10,6 +11,7 @@
 <script>
 export default {
   created() {
+    //获取items列表
     //getUtilList
   },
   data() {
