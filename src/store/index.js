@@ -22,8 +22,8 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        setInfo({ commit }, { value }) {
-            commit("SET_INFO", value)
+        setInfo({ commit }, data) {
+            commit("SET_INFO", data)
         }
     },
     modules: {}
