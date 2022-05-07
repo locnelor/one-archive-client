@@ -11,10 +11,11 @@ export default {
     const { user } = this.$store.state;
     //若处于未登录状态，跳转至登录组件
     if (!user) {
-      const pathname = this.$router.history.current.path;
+      const href = window.location.href;
+      const path = href.substring(href.lastIndexOf("#") + 1);
       this.$router.push({
         path: "/auth",
-        query: { pathname },
+        query: { path },
       });
     }
   },
