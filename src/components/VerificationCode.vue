@@ -1,7 +1,5 @@
 <template>
-  <div class="box">
-    <img :src="src" @click="getSrc" />
-  </div>
+  <div class="box" @click="getSrc" v-html="html"></div>
 </template>
 <script>
 import http from "../utils/http";
@@ -11,14 +9,14 @@ export default {
   },
   data() {
     return {
-      src: "",
+      html: "",
     };
   },
   methods: {
     getSrc() {
       http.auth
         .getSrc()
-        .then((e) => (this.src = e))
+        .then((e) => (this.html = e))
         .catch(console.log);
     },
   },
@@ -30,9 +28,6 @@ export default {
   height: 44px;
   padding-right: 10px;
   padding-left: 10px;
-}
-.box .img {
-  width: 100%;
   cursor: pointer;
 }
 </style>
