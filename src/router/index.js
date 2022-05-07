@@ -5,14 +5,15 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        component: () => Layout,
+        component: Layout,
         children: [{
             path: "",
             component: () =>
                 import ("../views/index"),
             name: "index"
         }]
-    }, {
+    },
+    {
         path: "/auth",
         name: "auth",
         component: () =>
