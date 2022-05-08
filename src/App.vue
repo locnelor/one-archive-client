@@ -10,14 +10,14 @@ export default {
   created() {
     const { user } = this.$store.state;
     //若处于未登录状态，跳转至登录组件
-    if (!user) {
-      const href = window.location.href;
-      const path = href.substring(href.lastIndexOf("#") + 1);
-      this.$router.push({
-        path: "/auth",
-        query: { path },
-      });
-    }
+    // if (!user) {
+    //   const href = window.location.href;
+    //   const path = href.substring(href.lastIndexOf("#") + 1);
+    //   this.$router.push({
+    //     path: "/auth",
+    //     query: { path },
+    //   });
+    // }
   },
   components: {
     FooterComponent,
