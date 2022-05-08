@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     123123
-    <router-link to="/demo">toDemo</router-link>
+    <router-link to="/">toIndex</router-link>
     <van-row :gutter="40">
       <van-col :span="6" v-for="(item, key) in utils" :key="key">
         <van-card :title="item.title" @click="push(item)"> </van-card>
