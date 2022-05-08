@@ -5,11 +5,11 @@
   </div>
 </template>
 <script>
-import FooterComponent from "./components/Footer.vue";
+import FooterComponent from './components/Footer.vue'
 export default {
   created() {
-    const { user } = this.$store.state;
-    //若处于未登录状态，跳转至登录组件
+    const { user } = this.$store.state
+    //若处于未登录状态，跳转至登录组件1111
     // if (!user) {
     //   const href = window.location.href;
     //   const path = href.substring(href.lastIndexOf("#") + 1);
@@ -20,9 +20,9 @@ export default {
     // }
   },
   components: {
-    FooterComponent,
-  },
-};
+    FooterComponent
+  }
+}
 </script>
 <style>
 #app {
