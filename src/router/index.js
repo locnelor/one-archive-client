@@ -11,6 +11,12 @@ const routes = [{
             component: () =>
                 import ("../views/index"),
             name: "index"
+        }, {
+            path: "/demo",
+            component: () =>
+                import ("../views/demo"),
+            name: "demo",
+            meta: { rule: 1, message: "必须登录才能查看" }
         }]
     },
     {
