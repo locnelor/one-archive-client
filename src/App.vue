@@ -1,15 +1,24 @@
 <template>
   <div id="app">
-    <router-view />
-    <footer-component />
+    <!-- <Login></Login> -->
+    <!-- <div v-if="loading"></div>
+    <div v-else>
+      <router-view></router-view>
+      <footer-component></footer-component>
+    </div> -->
+    <Register></Register>
   </div>
 </template>
 <script>
 import FooterComponent from './components/Footer.vue'
+// import Login from './views/login.vue'
+// import Index from './views/index.vue'
+import Register from './views/register.vue'
+
 export default {
   created() {
     const { user } = this.$store.state
-    //若处于未登录状态，跳转至登录组件1111
+    //若处于未登录状态，跳转至登录组件
     // if (!user) {
     //   const href = window.location.href;
     //   const path = href.substring(href.lastIndexOf("#") + 1);
@@ -20,7 +29,10 @@ export default {
     // }
   },
   components: {
-    FooterComponent
+    FooterComponent,
+    Register
+    // Login
+    // Index
   }
 }
 </script>
