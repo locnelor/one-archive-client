@@ -32,7 +32,12 @@ const http = {
         //自动登录
         getInfo: () => axios.get("/auth/getInfo"),
         //获取验证码
-        getSrc: () => axios.get("/auth/getSrc?d=" + Date.now())
+        getSrc: () => axios.get("/auth/getSrc?d=" + Date.now()),
+        //获取注册验证码
+        getEmail: (email) => axios.post("/auth/getCode", stringify({ email })),
+        //注册功能
+        toRegister: (user_name, user_email, email_code, password, confirmPassword) =>
+            axios.post("/auth/register", stringify({ user_name, user_email, email_code, password, confirmPassword }))
     }
 }
 export default http

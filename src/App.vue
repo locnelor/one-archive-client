@@ -45,7 +45,6 @@ export default {
   padding: 0;
   margin: 0;
   height: 100%;
-  background: #fafafa;
 }
 .flex {
   display: flex;
