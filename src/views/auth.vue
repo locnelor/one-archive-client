@@ -8,7 +8,7 @@ import http from "../utils/http";
 //自动登录页面，向后端发送登录请求，检查是否已登录状态
 export default {
   created() {
-    const { path } = this.$router.history.current.query;
+    const { path = "/" } = this.$router.history.current.query;
     http.auth
       .getInfo()
       .then((e) => {

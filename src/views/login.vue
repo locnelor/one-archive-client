@@ -76,6 +76,7 @@ export default {
   margin-bottom: 10px;
 }
 .login {
+  margin-top: 40px;
   width: 100%;
   height: 80%;
 }

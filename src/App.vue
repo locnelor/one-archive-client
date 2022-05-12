@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <div v-if="loading"></div>
-    <div v-else>
-      <router-view></router-view>
-      <!-- <footer-component></footer-component> -->
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import FooterComponent from './components/Footer.vue'
+import FooterComponent from "./components/Footer.vue";
 
 export default {
+  data() {
+    return {
+      loading: true,
+    };
+  },
   created() {
-    const { user } = this.$store.state
+    /*  弃用 */
+    // const { user } = this.$store.state;
     // 若处于未登录状态，跳转至登录组件
-    if (!user) {
-      const href = window.location.href
-      const path = href.substring(href.lastIndexOf('#') + 1)
-      this.$router.push({
-        path: '/auth',
-        query: { path }
-      })
-    }
+    // if (!user) {
+    //   const href = window.location.href;
+    //   const path = href.substring(href.lastIndexOf("#") + 1);
+    //   this.$router.push({
+    //     path: "/auth",
+    //     query: { path },
+    //   });
+    // }
   },
   components: {
-    FooterComponent
-  }
-}
+    FooterComponent,
+  },
+};
 </script>
 <style>
 #app {
