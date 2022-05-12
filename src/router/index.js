@@ -31,12 +31,12 @@ const routes = [{
         component: () =>
             import ("../views/login"),
     },
-    // {
-    //     path: "/register",
-    //     name: "register",
-    //     component: () =>
-    //         import ("../views/register.vue")
-    // }
+    {
+        path: "/register",
+        name: "register",
+        component: () =>
+            import ("../views/register.vue")
+    }
 ]
 
 const router = new VueRouter({

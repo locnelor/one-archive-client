@@ -1,38 +1,30 @@
 <template>
   <div id="app">
-    <!-- <Login></Login> -->
-    <!-- <div v-if="loading"></div>
+    <div v-if="loading"></div>
     <div v-else>
       <router-view></router-view>
-      <footer-component></footer-component>
-    </div> -->
-    <Register></Register>
+      <!-- <footer-component></footer-component> -->
+    </div>
   </div>
 </template>
 <script>
 import FooterComponent from './components/Footer.vue'
-// import Login from './views/login.vue'
-// import Index from './views/index.vue'
-import Register from './views/register.vue'
 
 export default {
   created() {
     const { user } = this.$store.state
-    //若处于未登录状态，跳转至登录组件
-    // if (!user) {
-    //   const href = window.location.href;
-    //   const path = href.substring(href.lastIndexOf("#") + 1);
-    //   this.$router.push({
-    //     path: "/auth",
-    //     query: { path },
-    //   });
-    // }
+    // 若处于未登录状态，跳转至登录组件
+    if (!user) {
+      const href = window.location.href
+      const path = href.substring(href.lastIndexOf('#') + 1)
+      this.$router.push({
+        path: '/auth',
+        query: { path }
+      })
+    }
   },
   components: {
-    FooterComponent,
-    Register
-    // Login
-    // Index
+    FooterComponent
   }
 }
 </script>

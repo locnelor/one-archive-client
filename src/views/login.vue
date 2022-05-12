@@ -3,20 +3,22 @@
     <div class="container">
       <h2 class="title">{{ title }}</h2>
       <div class="subtitle">{{ subtitle }}</div>
-      <van-divider dashed>账号密码登录</van-divider>
-      <van-form @submit="submit">
-        <van-cell-group inset>
-          <van-field v-model="account" name="account" label="用户名" placeholder="用户名" :rules="[{ required: true, message: '请填写用户名' }]" />
-          <van-field v-model="password" type="password" name="password" label="密码" placeholder="密码" :rules="[{ required: true, message: '请填写密码' }]" />
-        </van-cell-group>
-        <div class="flex">
-          <verification-code />
-          <van-field class="getSrc" v-model="code" name="code" placeholder="验证码" :rules="[{ required: true, message: '请填写验证码' }]" />
+      <el-divider>账号密码登录</el-divider>
+      <el-form @submit="submit" status-icon label-width="100px" class="demo-ruleForm">
+        <el-form-item label="邮箱">
+          <el-input v-model="account" type="email" autocomplete="off" placeholder="请输入邮箱"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="checkPass">
+          <el-input v-model="password" type="password" autocomplete="off" placeholder="请输入密码"></el-input>
+        </el-form-item>
+        <div style="margin-bottom:10px">
+          <verification-code style="float:left" />
+          <el-input v-model="code" placeholder="请输入验证码" style="width:182px;margin-left:10px"></el-input>
         </div>
         <div class="footer">
-          <van-button block native-type="submit"> 登录 </van-button>
+          <el-button type="primary" style="width:100px;margin-left:90px" block @click="submit">登录</el-button>
         </div>
-      </van-form>
+      </el-form>
       <router-link to="/register" class="signIn">没有账号?注册一个</router-link>
     </div>
   </div>
@@ -39,10 +41,10 @@ export default {
     }
   },
   methods: {
-    submit(values) {
+    submit() {
       this.loading = true
       http.auth
-        .login(values)
+        .login(this.account, this.password, this.code)
         .then(() => {
           this.$router.push({
             path: 'auth',
@@ -58,7 +60,7 @@ export default {
   components: { VerificationCode }
 }
 </script>
-<style scoped>
+<style lang='less' scoped>
 .container {
   background: #fff;
   width: 320px;
@@ -91,10 +93,13 @@ export default {
 }
 .signIn {
   font-size: 12px;
-  margin-left: 195px;
+  margin-left: 210px;
   padding-top: 10px;
 }
 .getSrc {
   margin-left: 33px;
+}
+/deep/.el-form-item__label {
+  padding: 0 40px 0 0;
 }
 </style>

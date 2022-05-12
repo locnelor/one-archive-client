@@ -28,7 +28,7 @@ axios.interceptors.response.use(({ data }) => data, ({
 const http = {
     auth: {
         //登录
-        login: ({ account, password, code }) => axios.post("/auth/login", stringify({ account, password, code })),
+        login: (account, password, code) => axios.post("/auth/login", stringify({ account, password, code })),
         //自动登录
         getInfo: () => axios.get("/auth/getInfo"),
         //获取验证码
