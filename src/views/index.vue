@@ -18,6 +18,21 @@
 </template>
 <script>
 import http from "@/utils/http";
+
+/**
+ * 项目状态 status:
+ * ready  准备中
+ * running  进行中
+ * error    失败
+ * success  成功
+ *
+ *
+ * format选项，
+ * 参考java SimpleDateFormat
+ * 示例：
+ * yyyy-MM-dd  年-月-日
+ * MM.dd       月.日
+ */
 export default {
   computed: {
     getUrl() {
