@@ -1,29 +1,27 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view v-if="show"></router-view>
   </div>
 </template>
 <script>
 import FooterComponent from "./components/Footer.vue";
-
+import http from "./utils/http";
 export default {
   data() {
     return {
-      loading: true,
+      show: false,
     };
   },
   created() {
-    /*  弃用 */
-    // const { user } = this.$store.state;
-    // 若处于未登录状态，跳转至登录组件
-    // if (!user) {
-    //   const href = window.location.href;
-    //   const path = href.substring(href.lastIndexOf("#") + 1);
-    //   this.$router.push({
-    //     path: "/auth",
-    //     query: { path },
-    //   });
-    // }
+    http.auth
+      .getInfo()
+      .then((e) => {
+        this.$store.dispatch("setInfo", e);
+      })
+      .catch(console.log)
+      .finally(() => {
+        this.show = true;
+      });
   },
   components: {
     FooterComponent,

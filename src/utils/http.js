@@ -38,6 +38,14 @@ const http = {
         //注册功能
         toRegister: (user_name, user_email, email_code, password, confirmPassword) =>
             axios.post("/auth/register", stringify({ user_name, user_email, email_code, password, confirmPassword }))
+    },
+    archive: {
+        //获取我的项目
+        getMyprojects: () => axios.get("/archive/getMyProjects"),
+        //添加项目
+        add: (data) => axios.post("/archive/add", data),
+        //执行项目
+        run: (id) => axios.get(`/archive/run/${id}`)
     }
 }
 export default http
