@@ -47,7 +47,7 @@ export default {
         .login(this.account, this.password, this.code)
         .then(() => {
           this.$router.push({
-            path: 'auth',
+            path: '/',
             query: this.$router.history.current.query.pathname || '/'
           })
         })

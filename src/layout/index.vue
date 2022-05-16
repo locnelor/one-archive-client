@@ -1,28 +1,30 @@
 <template>
   <div class="wrapper">
-    <page-header />
+    <div>
+      <page-header />
+    </div>
     <router-view />
   </div>
 </template>
 <script>
-import pageHeader from "./pageHeader.vue";
+import pageHeader from './pageHeader.vue'
 export default {
   created() {
-    this.inspect(this.$router.history.current.meta);
+    this.inspect(this.$router.history.current.meta)
   },
   methods: {
     //检查是否符合权限
     inspect(meta) {
-      const user = this.$store.state.user;
-      console.log(meta);
-      return true;
-    },
+      const user = this.$store.state.user
+      console.log(meta)
+      return true
+    }
   },
   //路由改变时触发，通过meta判断是否符合权限
   beforeRouteUpdate(to, form, next) {
-    if (this.inspect(to.meta)) next();
+    if (this.inspect(to.meta)) next()
     //else
   },
-  components: { pageHeader },
-};
+  components: { pageHeader }
+}
 </script>

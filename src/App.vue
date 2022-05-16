@@ -4,29 +4,29 @@
   </div>
 </template>
 <script>
-import FooterComponent from "./components/Footer.vue";
-import http from "./utils/http";
+import FooterComponent from './components/Footer.vue'
+import http from './utils/http'
 export default {
   data() {
     return {
-      show: false,
-    };
+      show: false
+    }
   },
   created() {
     http.auth
       .getInfo()
-      .then((e) => {
-        this.$store.dispatch("setInfo", e);
+      .then(e => {
+        this.$store.dispatch('setInfo', e)
       })
       .catch(console.log)
       .finally(() => {
-        this.show = true;
-      });
+        this.show = true
+      })
   },
   components: {
-    FooterComponent,
-  },
-};
+    FooterComponent
+  }
+}
 </script>
 <style>
 #app {
